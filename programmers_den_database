@@ -1,0 +1,100 @@
+CREATE DATABASE IF NOT EXISTS programmers_den_DB;
+
+USE programmers_den_DB;
+
+CREATE TABLE IF NOT EXISTS carousel(
+		id INT NOT NULL AUTO_INCREMENT,
+		title VARCHAR(30),
+		description VARCHAR(50),
+		img_name VARCHAR(255),
+		date_uploaded DATETIME NOT NULL DEFAULT NOW(),
+		is_activated CHAR(5),
+		PRIMARY KEY(id)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS events(
+		id INT NOT NULL AUTO_INCREMENT,
+		title VARCHAR(255),
+		description TEXT,
+		img_name VARCHAR(255),
+		date_uploaded DATETIME NOT NULL DEFAULT NOW(),
+		is_activated CHAR(5),
+		PRIMARY KEY(id)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS article_category(
+		id INT NOT NULL AUTO_INCREMENT, 
+		category VARCHAR(255),
+		PRIMARY KEY(id)
+) ENGINE=INNODB;
+
+INSERT INTO article_category(category) VALUE('Hacking');
+INSERT INTO article_category(category) VALUE('Programming');
+
+CREATE TABLE IF NOT EXISTS article_sub_category(
+		id INT NOT NULL AUTO_INCREMENT, 
+		subcategory VARCHAR(255),
+		category_id INT NOT NULL,
+		PRIMARY KEY(id),
+		FOREIGN KEY(category_id) REFERENCES article_category(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS admin(
+		id INT NOT NULL AUTO_INCREMENT,
+		username VARCHAR(255),
+		password VARCHAR(255),
+		PRIMARY KEY(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS articles(
+		id INT NOT NULL AUTO_INCREMENT,
+		slug VARCHAR(255),
+		title VARCHAR(255),
+		content TEXT,
+		image_name VARCHAR(255),
+		post_date DATETIME NOT NULL DEFAULT NOW(),
+		sub_category_id INT NOT NULL,
+		admin_id INT NOT NULL,
+		is_activated CHAR(5),
+		PRIMARY KEY(id),
+		FOREIGN KEY(sub_category_id) REFERENCES article_sub_category(id),
+		FOREIGN KEY(admin_id) REFERENCES admin(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS about_us(
+		id INT NOT NULL AUTO_INCREMENT,
+		content TEXT,
+		admin_id INT NOT NULL,
+		PRIMARY KEY(id),
+		FOREIGN KEY(admin_id) REFERENCES admin(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS students(
+		id INT NOT NULL AUTO_INCREMENT,
+		std_number VARCHAR(10),
+		PRIMARY KEY(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS faculty(
+		id INT NOT NULL AUTO_INCREMENT,
+		flty_number VARCHAR(10),
+		PRIMARY KEY(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS users(
+		id INT NOT NULL AUTO_INCREMENT,
+		user_id INT NOT NULL,
+		username VARCHAR(255),
+		password VARCHAR(255),
+		PRIMARY KEY(id)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS article_comments(
+		id INT NOT NULL AUTO_INCREMENT,
+		comment TEXT,
+		article_id INT NOT NULL,
+		user_id INT NOT NULL,
+		PRIMARY KEY(id),
+		FOREIGN KEY(article_id) REFERENCES articles(id),
+		FOREIGN KEY(user_id) REFERENCES students(id)
+)ENGINE=INNODB;

@@ -1,0 +1,68 @@
+.faculty_dashboard{
+	width:100%;
+	background-color: #333333;
+	color:white;
+	margin-bottom: 2em;
+}
+.faculty_dash_header a .brand{
+	color:white;
+}
+.faculty_dash_header a .brand:hover{
+	color:#ffa500;
+}
+.faculty_dash_header .logout a{
+	color:white;
+}
+
+.faculty_dash_header .logout a:hover{
+	color:#ffa500;
+	text-decoration: none;
+}
+
+.add_group_controller {
+	width:100%;
+    background-color: white;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    box-shadow: 0px 0px 2px #333333;
+}
+.view_group{
+	border-left: 8px solid #333333;
+	padding-left: 8px;
+}
+
+
+.chapters_table, .group_table, .post_article_table{
+	position: relative;
+}
+
+.chapters, .groups_items{
+	margin-top: 1em;
+	height: 500px;
+	overflow: auto;
+}
+
+.chapters_controller{
+	width:100%;
+	background-color: #333333;
+	color:white;
+	margin-bottom: 2em;
+}
+
+.faculty_post_article_controller{
+	width:100%;
+    background-color: white;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    box-shadow: 0px 0px 2px #333333;
+}
+
+.post_articles{
+	margin-top: 1em;
+	margin-bottom: 2em;
+	height: 700px;
+	overflow: auto;
+}
+.goto_chap_controller{
+	display: none;
+}

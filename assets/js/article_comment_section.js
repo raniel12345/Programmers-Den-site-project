@@ -23,12 +23,13 @@ function get_comments_on_this_article(id){
 		)
 }
 
-function get_user_on_dis_comment(id, div){
+function get_user_on_dis_comment(id,user_flag ,div){
 	var username = "";
 	$.post(
 		base_url+"get_username_on_this_comment",
 		{
-			"id":id
+			"id":id,
+			"user_flag":user_flag
 		},
 		function(data){
 			$(div).html(data);
@@ -50,9 +51,9 @@ function display(comments){
 			comments_to_display += "<div class='panel-heading'>";
 				comments_to_display += "<header>";
 					comments_to_display += "<img class='user_img' src='"+base_url+"assets/img/icon/anonymous.png'/>";
-					username_div_class = "username_"+item.user_id;
+					username_div_class = "username_"+item.user_flag+"_"+item.user_id;
 					comments_to_display += "<div class='"+username_div_class+"'></div>";
-					get_user_on_dis_comment(item.user_id, "."+username_div_class);
+					get_user_on_dis_comment(item.user_id, item.user_flag,"."+username_div_class);
 				comments_to_display += "</header>";
 				comments_to_display += "<div class='clear'></div>";
 			comments_to_display += "</div>";

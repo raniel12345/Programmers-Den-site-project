@@ -7,15 +7,24 @@
 		*	Function for selecting user for login
 		*	Who is using this function: main.php - login_users
 		*/
-		public function select_user($user_id, $user_password){
+		public function select_user($user_num_id, $user_password){
 
-			$this->db->where("user_id",$user_id);
+			$this->db->where("std_number_id",$user_num_id);
 			$this->db->where("password", $user_password);
 			$this->db->limit(1);
-			$resutls = $this->db->get("users");
+			$results = $this->db->get("student_accounts");
 
-			return $resutls->row_array();
+			return $results->row_array();
 		}
+
+		public function get_std_num($std_number){
+			$this->db->where("std_number",$std_number);
+			$this->db->limit(1);
+			$results = $this->db->get("students");
+
+			return $results->row_array();
+		}
+		
 		/*
 		*	Function for selecting user on one comment
 		*	Who is using this function: main.php - get_username_on_this_comment
@@ -23,10 +32,19 @@
 		public function select_user_on_comment($id){
 			$this->db->where("id", $id);
 			$this->db->limit(1);
-			$results = $this->db->get("users");
+			$results = $this->db->get("student_accounts");
 
 			return $results->row_array();
 		}
+
+		public function select_faculty_num_on_comment($id){
+			$this->db->where("id", $id);
+			$this->db->limit(1);
+			$results = $this->db->get("faculty_accounts");
+
+			return $results->row_array();
+		}
+
 
 		/*
 		*	Function for selecting all event item
@@ -181,9 +199,11 @@
 		*	Who is using this function: main.php - main_insert_article_comment
 		*/
 		public function insert_article_comment($article_comment, $article_id, $user_id){
+
 			$data = array(
 					"comment" => $article_comment,
 					"article_id" => $article_id,
+					"user_flag" => "student",// admin, faculty
 					"user_id" => $user_id
 				);
 

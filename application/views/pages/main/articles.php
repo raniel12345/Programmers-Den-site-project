@@ -65,6 +65,7 @@
 													</p>
 												</div>
 												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+													<!-- Displaying comments here -->
 													<div class="article_comments"></div>
 
 													<?php if($this->session->logged_in): ?>
@@ -72,7 +73,7 @@
 															<div class="panel-heading">
 																<header>
 																	<img class="user_img" src="<?php echo base_url("assets/img/icon/anonymous.png"); ?>">
-																	Anonymous
+																	<?php echo $this->session->username; ?>
 																</header>
 															</div>
 															<div class="panel-body">
@@ -179,7 +180,7 @@
 	</section>
 	<!--End Articles -->
 
-	<script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script>
+	<!-- <script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script> -->
 	<script type="text/javascript" src="<?php echo base_url('assets/js/main.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/article_search_section.js'); ?>"></script>
 

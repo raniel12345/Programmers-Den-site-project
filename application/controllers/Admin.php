@@ -1,4 +1,4 @@
-<?php
+<?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
 	class Admin extends CI_Controller{
 
@@ -99,8 +99,8 @@
 			$config['upload_path'] = 'assets/img/upload_imgs/carousel';
 			$config['allowed_types'] = 'jpeg|jpg|png';
 			$config['max_size'] = 2048;
-			$config['max_width'] = 1024;
-			$config['max_height'] = 768;
+			$config['max_width'] = 1200;
+			$config['max_height'] = 600;
 			$config['file_ext_tolower'] = TRUE;
 			$config['encrypt_name'] = TRUE;
 
@@ -813,7 +813,10 @@
 		public function get_current_about_us_item(){ // just return the id
 			$results = $this->admin_mod->select_current_activated_about_us();
 
-			return $results['id'];
+			if (sizeof($results) > 0)
+				return $results['id'];
+			else
+				return false;
 		}
 
 		public function activate_about_us_item(){
@@ -832,7 +835,10 @@
 
 		public function deactivate_current_about_us_item(){
 			$current_about_us_id = $this->get_current_about_us_item();
-			$this->admin_mod->deactivate_about_us($current_about_us_id);
+			//$this->get_current_about_us_item();
+			//echo $current_about_us_id;
+			if($current_about_us_id !== FALSE)
+				$this->admin_mod->deactivate_about_us($current_about_us_id);
 		}
 
 		public function insert_new_about_us(){
@@ -861,10 +867,10 @@
 
 			}else{
 			    	// Before we insert new item we must deactivate the current about us item
-			    $this->deactivate_current_about_us_item();
-
+			   	$this->deactivate_current_about_us_item();
+			    //echo "YEYEYESS";
 			    $this->admin_mod->insert_new_about_us($data['content'], $admin_id);
-			    	//echo "YEYEYESS";
+			    
 				$this->get_all_about_us_content();
 			}
 		}

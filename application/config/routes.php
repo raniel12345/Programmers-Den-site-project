@@ -49,6 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['faculty_login'] = 'faculty/login';
+$route['faculty_dashboard'] = 'faculty/dashboard';
+$route['add_new_group'] = 'faculty/add_new_group';
+$route['get_all_semesters'] = 'faculty/get_all_semesters';
+$route['get_all_groups_on_this_sem_n_fac'] = 'faculty/get_all_groups_on_this_sem_n_fac';
+$route['get_this_group'] = 'faculty/get_this_group';
+$route['get_semester_of_this_group'] = 'faculty/get_semester_of_this_group';
+$route['add_new_chapter_on_this_group'] = 'faculty/add_new_chapter_on_this_group';
+$route['get_all_chapters_on_this_group'] = 'faculty/get_all_chapters_on_this_group';
+$route['get_this_chapter'] = 'faculty/get_this_chapter';
 
 // Main routing
 $route['insert_article_comment'] = 'main/main_insert_article_comment';

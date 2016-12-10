@@ -18,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"/> 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css'); ?>"/>
  	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard.css'); ?>"/>
- 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/admin_login_style.css') ?>">
- 	
+ 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/admin_faculty_login_style.css') ?>">
+ 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/faculty_dashboard.css'); ?>">
  	<!-- Jquery UI -->
  	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
@@ -27,5 +27,9 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 	<!-- Jquery UI -->
 	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+		var base_url = "<?php echo base_url(); ?>";
+	</script>
 </head>
 <body>

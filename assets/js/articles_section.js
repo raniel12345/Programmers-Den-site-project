@@ -47,15 +47,15 @@ $(document).ready(function(){
 
 		// Just clicking the link on article
 		// when the user click the image of the article
-		$('.article_img').on('click',function(){
+		/*$('.article_img').on('click',function(){
 			window.location = base_url + "articles/" + $(this).attr('id');
 			//alert($(this).attr('id'));
 		});
 
 		$(".article_link").on("click",function(){
 			window.location = base_url + "articles/" + $(this).attr('id');
-			//alert($(this).attr('id'));
-		});
+			alert($(this).attr('id'));
+		});*/
 
 	}
 
@@ -74,7 +74,7 @@ $(document).ready(function(){
 					display_new_article += "<img src='"+article_img_uri+"' class='article_img' id='"+item.id+"/"+item.slug+"'>";
 
 					display_new_article += "<p>Published on "+item.post_date+"</p>";// post_date, and category and sub
-					display_new_article += "<a href='#' id='"+item.id+"/"+item.slug+"' class='article_link'><h3>"+item.title+"</h3></a>";
+					display_new_article += "<a href='articles/"+item.id+"/"+item.slug+"' id='"+item.id+"/"+item.slug+"' class='article_link'><h3>"+item.title+"</h3></a>";
 				display_new_article += "</div>";
 			display_new_article += "</header>";
 
@@ -116,7 +116,7 @@ $(document).ready(function(){
 					display_recent_article += "<img src='"+article_img_uri+"' class='article_img' id='"+item.id+"/"+item.slug+"'>";
 
 					display_recent_article += "<p>Published on "+item.post_date+"</p>";// post_date, and category and sub
-					display_recent_article += "<a href='#' id='"+item.id+"/"+item.slug+"' class='article_link'><h3>"+item.title+"</h3></a>";
+					display_recent_article += "<a href='articles/"+item.id+"/"+item.slug+"' id='"+item.id+"/"+item.slug+"' class='article_link'><h3>"+item.title+"</h3></a>";
 				display_recent_article += "</div>";
 			display_recent_article += "</header>";
 

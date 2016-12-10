@@ -1,33 +1,3 @@
-<!-- 	<header id="top">
-		<div class="header">
-			<div class="container">
-				<div class="page_header">
-					<a href="#"><h1>Programmers' Den</h1></a>
-					<span>College Of Computer Studies | </span>
-					<span>Tarlac State University</span>
-				</div>
-				<div class="page_search">
-					<input type="text" class="" name="search_query" placeholder="Search">
-					<button type="submit" id="btnSearch" class="btn-warning">Search</button>
-				</div>
-				<div class="clear"></div>
-				<div class="page_nav">
-					<nav>
-						<ul>
-							<a href="#our_events"><li>EVENTS</li></a>
-							<a href="#our_articles"><li>ARTICLES</li></a>
-							<a href="#our_tutorials"><li>TUTORIALS</li></a>
-							<a href="#about_us_contact_our_admin"><li>ABOUT US</li></a>
-							<a href="#about_us_contact_our_admin"><li>CONTACT US</li></a>
-							<a href="#our_login"><li class='login'>LOG-IN</li></a>
-							<a href="#our_sign_up"><li class='sign-up'>SIGN-UP</li></a>
-						</ul>
-						<div class="handle">Menu</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header> -->
 
 	<section>
 		<!-- Slider -->
@@ -96,89 +66,91 @@
 		</div>
 	</section>
 
-	<div id="our_login">
-		<div class="page_login">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<div class="login">
-							<div class="login_header">
-								<h3>Login</h3>
-							</div>
-							<div class="login_body">
-								<form class="user_login_frm">
-									<div class="form-group">
-								      <input type="text" class="form-control user_id" id="stdNum" name="student_number" placeholder="Student Number" required />
-								    </div>
 
-								    <div class="form-group">
-								      <input type="password" class="form-control user_password" id="stdPswd" name="student_password" placeholder="Password" required />
-								    </div>
+	<?php if(!$this->session->logged_in): ?>
+		<div id="our_login">
+			<div class="page_login">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="login">
+								<div class="login_header">
+									<h3>Login</h3>
+								</div>
+								<div class="login_body">
+									<form method="post" class="user_login_frm">
+										<div class="form-group">
+									      <input type="text" class="form-control user_id" id="stdNum" name="student_number" placeholder="Student Number" required />
+									    </div>
 
-								    <input type="submit" name="send_this_message" Value="Login" class="btn btn-warning btn-block user_login_btn">
-								</form>
-								<div class="login_error"></div>
+									    <div class="form-group">
+									      <input type="password" class="form-control user_password" id="stdPswd" name="student_password" placeholder="Password" required />
+									    </div>
+
+									    <input type="submit" name="send_this_message" Value="Login" class="btn btn-warning btn-block user_login_btn">
+									</form>
+									<div class="login_error"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<a href="#">
-				          <span class="glyphicon glyphicon-remove close_login"></span>
-				        </a>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<a href="#">
+					          <span class="glyphicon glyphicon-remove close_login"></span>
+					        </a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="our_sign_up">
-		<div class="page_sign_up">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<div class="sign_up">
-							<div class="sign_up_header">
-								<h3>Sign Up</h3>
-							</div>
-							<div class="sign_up_body">
-								<form>
-									<div class="form-group">
-								      <input type="text" class="form-control" id="stdNum" name="student_number" placeholder="Student Number" required />
-								    </div>
+		<div id="our_sign_up">
+			<div class="page_sign_up">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="sign_up">
+								<div class="sign_up_header">
+									<h3>Sign Up</h3>
+								</div>
+								<div class="sign_up_body">
+									<form>
+										<div class="form-group">
+									      <input type="text" class="form-control" id="stdNum" name="student_number" placeholder="Student Number" required />
+									    </div>
 
-								    <div class="form-group">
-								      <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required />
-								    </div>
+									    <div class="form-group">
+									      <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required />
+									    </div>
 
-								    <div class="form-group">
-								      <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required />
-								    </div>
+									    <div class="form-group">
+									      <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required />
+									    </div>
 
-								    <div class="form-group">
-								      <input type="password" class="form-control" id="pswd" name="password" placeholder="Password" required />
-								    </div>
+									    <div class="form-group">
+									      <input type="password" class="form-control" id="pswd" name="password" placeholder="Password" required />
+									    </div>
 
-								    <div class="form-group">
-								      <input type="password" class="form-control" id="confmPswd" name="confirm_password" placeholder="Confirm Password" required />
-								    </div>
+									    <div class="form-group">
+									      <input type="password" class="form-control" id="confmPswd" name="confirm_password" placeholder="Confirm Password" required />
+									    </div>
 
-								    <input type="submit" name="sign_up" Value="Sign Up" class="btn btn-warning btn-block">
-								</form>
+									    <input type="submit" name="sign_up" Value="Sign Up" class="btn btn-warning btn-block">
+									</form>
+								</div>
 							</div>
 						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<a href="#">
+					          <span class="glyphicon glyphicon-remove"></span>
+					        </a>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<a href="#">
-				          <span class="glyphicon glyphicon-remove"></span>
-				        </a>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
 				</div>
+				
 			</div>
-			
 		</div>
-	</div>
-
+	<?php endif; ?>
 	<!-- Events -->
 	<section id='our_events'>
 		<div class="page_events">
@@ -456,65 +428,198 @@
 		</div>
 	</section>
 
-	<section id="about_us_contact_our_admin">
-		<div class="about_us_n_contact_us">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 -col-lg-6">
-						<div class="about_us_header">
-							<h3>About Us</h3>
+	<?php if(!$this->session->logged_in): ?>
+		<section id="about_us_contact_our_admin">
+			<div class="about_us_n_contact_us">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6 -col-lg-6">
+							<div class="about_us_header">
+								<h3>About Us</h3>
+							</div>
+							<div class="clear"></div>
+							<div class="about_us">
+								<p class="about_us_content"></p>
+							</div>
 						</div>
-						<div class="clear"></div>
-						<div class="about_us">
-							<p class="about_us_content"></p>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 -col-lg-6">
-						<div class="contact_us_header">
-							<h3>Contact Us</h3>
-						</div>
-						<div class="contact_us">
-							<form class="contact_us_frm">
-								<div class="form-group">
-							      <input type="text" class="form-control sender_name" name="sender_name" placeholder="Name" required />
-							    </div>
-							    <div class="form-group">
-							      <input type="email" class="form-control sender_email" name="sender_email" placeholder="Email" required />
-							    </div>
-							    <div class="form-group">
-							      <input type="text" class="form-control sender_phone_no" name="sender_phone_no" placeholder="Phone Number" />
-							    </div>
-							    <div class="form-group">
-							      <input type="text" class="form-control subject" name="subject" placeholder="Subject" />
-							    </div>
-							    <div class="form-group">
-								  <textarea class="form-control message" rows="5" placeholder="Message"></textarea>
-								</div>
-								<input type="submit" name="send_this_message" Value="Send" class="btn btn-warning btn-block">
-							</form>
-							<p class="contact_us_frm_error"></p>
+						<div class="col-xs-12 col-sm-6 col-md-6 -col-lg-6">
+							<div class="contact_us_header">
+								<h3>Contact Us</h3>
+							</div>
+							<div class="contact_us">
+								<form class="contact_us_frm">
+									<div class="form-group">
+								      <input type="text" class="form-control sender_name" name="sender_name" placeholder="Name" required />
+								    </div>
+								    <div class="form-group">
+								      <input type="email" class="form-control sender_email" name="sender_email" placeholder="Email" required />
+								    </div>
+								    <div class="form-group">
+								      <input type="text" class="form-control sender_phone_no" name="sender_phone_no" placeholder="Phone Number" />
+								    </div>
+								    <div class="form-group">
+								      <input type="text" class="form-control subject" name="subject" placeholder="Subject" />
+								    </div>
+								    <div class="form-group">
+									  <textarea class="form-control message" rows="5" placeholder="Message"></textarea>
+									</div>
+									<input type="submit" name="send_this_message" Value="Send" class="btn btn-warning btn-block">
+								</form>
+								<p class="contact_us_frm_error"></p>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!-- Go Top button -->
+				<div class="go_top">
+					<button type="button" class="btn btn-default btn-sm go_top_btn">
+			          <span class="glyphicon glyphicon-chevron-up"></span> Go Back
+			        </button>
+				</div>
 			</div>
-			<!-- Go Top button -->
-			<div class="go_top">
-				<button type="button" class="btn btn-default btn-sm go_top_btn">
-		          <span class="glyphicon glyphicon-chevron-up"></span> Go Back
-		        </button>
+		</section>
+
+	<?php else: ?>
+		
+		<section id="our_subject_section">
+			<div class="subjects_section">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 -col-lg-12">
+							<div class="subject_header">
+								<h3>Groups</h3>
+								<label for=".semester">Choose Semester:</label>
+								<select class="form-control semester">
+									<option id="1">First Semester - 2012-2013</option>
+									<option id="2">Second Semester - 2012-2013</option>
+									<option id="3">First Semester - 2013-2014</option>
+									<option id="4">Second Semester - 2013-2014</option>
+									<option id="5">First Semester - 2014-2015</option>
+									<option id="6">Second Semester - 2014-2015</option>
+									<option id="7">First Semester - 2015-2016</option>
+									<option id="8">Second Semester - 2015-2016</option>
+								</select>
+							</div>
+							<div class="clear"></div>
+							<hr/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 -col-lg-3">
+							<div class="groups">
+								<div class="group_header">
+									<h3>Groups</h3>
+								</div>
+								<div class="group_body">
+									<p>Group name 1</p>
+									<p>Group name 2</p>
+									<p>Group name 3</p>
+									<p>Group name 4</p>
+									<p>Group name 5</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-3 col-md-3 -col-lg-3">
+							<div class="chapters">
+								<div class="chapters_header">
+									<h3>Chapters</h3>
+								</div>
+								<div class="chapters_body">
+									<p>Chapter 1</p>
+									<p>Chapter 2</p>
+									<p>Chapter 3</p>
+									<p>Chapter 4</p>
+									<p>Chapter 5</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6 -col-lg-6 lecturesSection">
+							<div class="lectures">
+								<div class="lecture_header">
+									<div class="group_title">
+										<h3>Group Title</h3>
+										<p>Chapter 1</p>
+									</div>
+								</div>
+
+								<div class="lecture_body">
+									<div class="lecture_notes">
+										<p><strong>Notes: </strong>This is sample lecture notes, so lets party party!!</p>
+									</div>
+									<table class="table table-bordered" >
+										<thead>
+											<tr>
+												<th>Lecture file name</th>
+												<th>Download it</th>
+											</tr>
+										</thead>
+										<tbody class="download lecture">
+											<tr>
+												<td>Lecture one file name</td>
+												<td><p><a href="#Download">Download</a></p></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<hr/>
+							<div class="lecture_comments">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<header>
+											<img class="user_img" src="<?php echo base_url("assets/img/icon/anonymous.png"); ?>">
+												Anonymous
+										</header>
+									</div>
+									<div class="panel-body">
+										<p class="comments">Sample Comment on this lecture :D</p>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<header>
+											<img class="user_img" src="<?php echo base_url("assets/img/icon/anonymous.png"); ?>">
+												Anonymous
+										</header>
+									</div>
+									<div class="panel-body">
+										<textarea class="lecture_comment_box"></textarea>
+									</div>
+									<div class="panel-footer">
+										<button class="btn btn-warning lecture_comment_share">Share</button>
+										<p class="lecture_comment_warning"></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Go Top button -->
+				<div class="go_top">
+					<button type="button" class="btn btn-default btn-sm go_top_btn">
+				        <span class="glyphicon glyphicon-chevron-up"></span> Go Back
+				    </button>
+				</div>
 			</div>
-		</div>
-	</section>
+				
+		</section>
+
+	<?php endif; ?>
+
+
 	<div class="gotoTop">
 		<a href="#top" class="goTop"><p>Go Top</p></a>
 	</div>
 
 	<script type="text/javascript" src="<?php echo base_url('assets/js/main.js'); ?>"></script>
 	<!-- Global variable to use the base_url on other javascript files -->
-	<script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script>
+	<!-- <script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script> -->
+	
 	<script type="text/javascript" src="<?php echo base_url('assets/js/login_section.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/event_section.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/articles_section.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/about_us_section.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/contact_us_section.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/article_search_section.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/lectures_section.js'); ?>"></script>

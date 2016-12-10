@@ -10,7 +10,7 @@
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"></div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					<div class="login_form">
-						<form class="admin_login_frm">
+						<form method="post" class="admin_login_frm">
 							<div class="form_title">
 								<h2>Admin Login</h2>
 							</div>
@@ -44,4 +44,4 @@
 
 
 	<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url('assets/js/login_controller.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/admin_login_controller.js'); ?>"></script>

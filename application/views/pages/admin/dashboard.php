@@ -166,51 +166,11 @@
 														    </tr>
 													    </thead>
 														<tbody id="carousel_items">
-															<?php
-																/*$carousel_item_size = sizeof($carousel_item);
-
-																for($i=0; $i<$carousel_item_size; $i++){
-																	echo "<tr>";
-																	echo "<td>".$carousel_item[$i]['id']."</td>";
-																	echo "<td>".$carousel_item[$i]['date_uploaded']."</td>";
-																	echo "<td>".$carousel_item[$i]['img_name']."</td>";
-																	echo "<td>".$carousel_item[$i]['title']."</td>";
-																	echo "<td>".$carousel_item[$i]['description']."</td>";
-
-																	echo form_open();
-																	echo "<td><button class='btn btn-warning'>Edit</button></td>";
-																	echo form_close();
-
-																	echo form_open('delete_this_carousel/'.$carousel_item[$i]['id']);
-																	echo "<td><input type='submit' name='delete_carousel' class='btn btn-warning' value='Delete'>";
-																	echo form_close();
-
-																	
-																	if($carousel_item[$i]['is_activated'] === 'TRUE'){
-																		echo "<td>".$carousel_item[$i]['is_activated']."</td>";
-																	}else{
-																		echo form_open('activate_this_carousel/'.$carousel_item[$i]['id']);
-																		echo "<td><input type='submit' name='activate_carousel' class='btn btn-warning' value='Activate'>";
-																		echo form_close();
-																	}
-																	
-
-																	if($carousel_item[$i]['is_activated'] === 'FALSE'){
-																		echo "<td>".$carousel_item[$i]['is_activated']."</td>";
-																	}else{
-																		echo form_open('deactivate_this_carousel/'.$carousel_item[$i]['id']);
-																		echo "<td><input type='submit' name='deactivate_carousel' class='btn btn-warning' value='Deactivate'>";
-																		echo form_close();
-																	}
-																	
-																	echo "</tr>";
-																}*/
-															?>
 														</tbody>
 													</table>
 												</div>
 											</div>
-												
+											
 										</div>
 									</div>
 								</div>
@@ -617,7 +577,7 @@
 											</div>
 										</div>
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-											<label for="upload_table">Article uploaded</label>
+											<label for="upload_table">About us items</label>
 											<div class="about_us_table" id="upload_table">
 												<div class="about_us_wrapper">
 													<div class="about_content">
@@ -809,10 +769,10 @@
     </div>
 
 	<!-- Global variable to use the base_url on other javascript files -->
-	<script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script>
+	<!-- <script type="text/javascript"> var base_url = "<?php echo base_url(); ?>"; </script> -->
 	<script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/tinymce_init.js'); ?>"></script>
-
+	<script type="text/javascript" src="<?php echo base_url('assets/js/main.js') ?>"></script>
 	
 	<script type="text/javascript" src="<?php echo base_url('assets/js/carousel_controller.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/event_controller.js'); ?>"></script>

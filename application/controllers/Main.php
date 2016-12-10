@@ -1,8 +1,11 @@
-<?php 
+<?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Main extends CI_Controller{
 
 		public function index(){
+
+			echo get_current_semester();
+			
 			$data['page_flag'] = "home";
 			$data['page_title'] = "Home - Programmers' Den";
 			$data['carousel_item'] = $this->admin_mod->select_all_carousel();
@@ -12,6 +15,20 @@
 			$this->load->view('layouts/footer');
 		}//
 
+/*		private function get_current_semester(){
+			$current_semester_year = date('Y') ."-". date('Y', strtotime('+1 year'));
+			//echo date('m', strtotime('-1 month'));
+			$current_month = date('m');
+
+			if($current_month >= 8){
+				echo "First Semester: ".$current_semester_year;
+			}else if($current_month <= 5){
+				echo "Second Semester: ".$current_semester_year;
+			}else{
+				echo "Summer Class";
+			}
+		}
+*/
 		private function json_output($array_to_display){
 			$this->output->set_content_type('application/json')->set_output(json_encode($array_to_display));
 		}//
@@ -33,13 +50,20 @@
 			if($this->form_validation->run() === FALSE){
 				$this->json_output(validation_errors());
 			}else{
-				$results = $this->main_mod->select_user($user_data['user_id'], $user_data['user_password']);
+				// Get the student id
+				$results_std_num = $this->main_mod->get_std_num($user_data['user_id']);
+
+
+				$results = $this->main_mod->select_user($results_std_num['id'], $user_data['user_password']);
 
 				if(sizeof($results) != 0){
 					
+					print_r($results);
+
 					$user_session_data = array(
 							'user_id' => $results['id'],
-							'username' => $results['username'],
+							'std_num' => $results_std_num['std_number'],
+							'username' => $results['student_name'],
 							'logged_in' => TRUE
 						);
 
@@ -61,23 +85,47 @@
 
 		public function get_username_on_this_comment(){
 
-			$id = trim($this->input->post("id"));
+			$id = trim($this->input->post("id"));//user id
+			$user_flag = trim($this->input->post("user_flag"));
 
 			$data = array(
-					'id'=>$id
+					'id'=>$id,
+					'user_flag'=>$user_flag
 				);
 
 			$this->form_validation->set_data($data);
 			$this->form_validation->set_rules("id", "Id", "trim|required");
+			$this->form_validation->set_rules("user_flag", "User Flag", "trim|required");
 
 			if($this->form_validation->run() === FALSE){
 				$this->json_output(validation_errors());
 			}else{
-				$results = $this->main_mod->select_user_on_comment($data['id']);
 
-				echo $results['username'];
+				if($user_flag == "student"){
+
+					$results = $this->main_mod->select_user_on_comment($data['id']);
+					//$results = $this->main_mod->select_std_num_on_comment($data['id']);
+					echo $results['student_name'];
+
+				}else if($user_flag == "faculty"){
+
+					$results = $this->main_mod->select_faculty_num_on_comment($data['id']);
+					echo $results['faculty_name'];
+
+				}else{
+					echo "Admin";
+				}
+
+				/*$results = $this->main_mod->select_user_on_comment($data['id']);
+
+				echo $results['std_number_id'];*/
 			}
+			
 		}//
+
+		public function get_comment_user(){
+
+		}
 
 		public function logout(){
 			$this->session->sess_destroy();

@@ -78,6 +78,7 @@ hr{
 .upload_pics_wrapper, .categories_wrapper, .subcategories_wrapper,.about_us_wrapper{
 	position: relative;
 }
+
 .upload_pics, .categories, .subcategories,.about_content{
 	margin-top: 1em;
 	height: 300px;

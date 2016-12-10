@@ -7,13 +7,13 @@ $(document).ready(function(){
 		var username = $(".username").val();
 		var password = $(".password").val();
 
-		alert(password);
+		//alert(password);
 
 		if(username != '' && password != ''){
 			login(username, password);
 		}
 	});
-
+/*
 	$(".login_btn").on('click',function(){
 		var username = $(".username").val();
 		var password = $(".password").val();
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		if(username != '' && password != ''){
 			login(username, password);
 		}
-	});
+	});*/
 
 	function login(username, password){
 		$.post(
@@ -41,7 +41,6 @@ $(document).ready(function(){
 					}
 					
 				}
-				
 			}
 		);
 	}

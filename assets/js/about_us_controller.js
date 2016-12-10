@@ -136,6 +136,7 @@ $(document).ready(function(){
 						$('.about_us_error').dialog("open");
 					}else{
 						tinymce.get('about_us_content').setContent("");
+						//alert(data);
 						display_about_us_table(data);
 					}
 				}

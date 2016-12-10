@@ -30,7 +30,7 @@
 	background-color: #333333;
 }
 
-.form_body .username{
+.form_body .username, .faculty_num{
 	border:0;
 	font-size: 18px;
 	padding:5px;

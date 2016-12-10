@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS about_us(
 		id INT NOT NULL AUTO_INCREMENT,
 		content TEXT,
 		admin_id INT NOT NULL,
+		is_activated CHAR(5),
 		PRIMARY KEY(id),
 		FOREIGN KEY(admin_id) REFERENCES admin(id)
 )ENGINE=INNODB;

@@ -45,7 +45,6 @@ $(document).ready(function(){
 		display_old_articles(articleItems);
 
 
-		// Just clicking the link on article
 		// when the user click the image of the article
 		/*$('.article_img').on('click',function(){
 			window.location = base_url + "articles/" + $(this).attr('id');
